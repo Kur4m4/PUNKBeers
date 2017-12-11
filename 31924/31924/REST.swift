@@ -50,10 +50,14 @@ class REST {
                             let image = item["image_url"] as! String
                             let name = item["name"] as! String
                             let tagline = item["tagline"] as! String
-                            let alcoholVolume = item["abv"] as! Double
-                            let bitternessScale = item["ibu"] as! Double
                             let description = item["description"] as! String
-                            let beer = Beer(image: image, name: name, tagline: tagline, alcoholVolume: alcoholVolume, bitternessScale: bitternessScale, description: description)
+                            let beer = Beer(image: image, name: name, tagline: tagline, alcoholVolume: 0, bitternessScale: 0, description: description)
+                            if let alcoholVolume = item["abv"] as? Double {
+                                beer.alcoholVolume = alcoholVolume
+                            }
+                            if let bitternessScale = item["ibu"] as? Double {
+                                beer.bitternessScale = bitternessScale
+                            }
                             beers.append(beer)
                         }
                         onComplete(beers)

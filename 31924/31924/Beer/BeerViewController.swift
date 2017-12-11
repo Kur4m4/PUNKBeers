@@ -26,8 +26,8 @@ class BeerViewController: UIViewController {
         lbName.text = beer.name
         lbTagline.text = beer.tagline
         tvDescription.text = beer.description
-        lbTeorAlcoolico.text = "Teor alcoólico: \(beer.alcoholVolume)"
-        lbEscalaAmargor.text = "Escala de Amargor: \(beer.bitternessScale)"
+        lbTeorAlcoolico.text = String(beer.alcoholVolume)
+        lbEscalaAmargor.text = String(beer.bitternessScale)
         let url = URL(string: beer.image)
         ivBeer.kf.setImage(with: url)
     }
